@@ -1,8 +1,14 @@
 from Genetic import Genetic
+
 """
-Goal: Use Genetic.Genetic to find a series of 
-number / symbol / ... / number
-args such that you end up with an expression for some target number.
+Goal: Use Genetic.Genetic to find a series of
+number / symbol / ... / number args
+such that you end up with an expression for some target number.
+
+Example: Try to find a string that is a mathematical expression for
+the number 5
+
+Result: "4 + 1"
 """
 
 # The legend used for decoding
@@ -14,8 +20,9 @@ def expr_for(num):
     """
     Goal: find a series of number / symbol / ... / number
     such that you end up with an expression for the target number.
-    This function returns a function which accomplishes this goal
-    when interfaced with the Genetic class.
+
+    This function returns another function, which accomplishes this
+    goal when interfaced with the Genetic class.
     """
     def _fitness(chromosome):
         segmented = segment(chromosome)
@@ -126,4 +133,3 @@ if __name__ == "__main__":
     mother_nature = Genetic(fitness_func, chromosome_size, population_size)
     for _ in range(num_generations):
         population = mother_nature.generation()
-
